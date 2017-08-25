@@ -1,7 +1,5 @@
 FROM nimmis/apache-php5:latest
-
-# File Author / Maintainer
-MAINTAINER Sijin He ( sijin@ebi.ac.uk )
+MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
 LABEL Description="Wiki for the PhenoMeNal Portal"
 LABEL software="PhenoMeNal Portal"
@@ -10,10 +8,13 @@ LABEL version="1.0"
 
 WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y --no-install-recommends git python python-dev build-essential python-pip && \
-    git clone https://github.com/phnmnl/php-phenomenal-portal-wiki.git && \
     pip install markdown2 && \
     apt-get purge -y python-dev build-essential python-pip && \
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV REVISION="257855833a12fdaf68db90b904244744d5f25d4b"
+RUN git clone https://github.com/phnmnl/php-phenomenal-portal-wiki.git
+RUN git -C php-phenomenal-portal-wiki checkout $REVISION
 
 WORKDIR /var/www/html/php-phenomenal-portal-wiki
 RUN chmod 755 *
