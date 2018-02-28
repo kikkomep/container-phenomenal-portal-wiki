@@ -3,7 +3,7 @@ MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
 LABEL Description="Wiki for the PhenoMeNal Portal"
 LABEL software="PhenoMeNal Portal"
-LABEL software.version="2.0.0"
+LABEL software.version="0.3.1"
 LABEL version="1.1.0"
 
 WORKDIR /var/www/html
