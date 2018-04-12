@@ -7,6 +7,11 @@ LABEL software.version="0.3.1"
 LABEL version="1.1.0"
 
 WORKDIR /var/www/html
+# Web server root path
+ENV WWW_ROOT "/var/www/html/"
+
+# App name as ENV variable
+ENV APP_NAME "php-phenomenal-portal-wiki"
 RUN apt-get update && apt-get install -y --no-install-recommends git python python-dev build-essential python-pip && \
     pip install markdown2 && \
     apt-get purge -y python-dev build-essential python-pip && \
