@@ -12,6 +12,10 @@ ENV WWW_ROOT "/var/www/html/"
 
 # App name as ENV variable
 ENV APP_NAME "php-phenomenal-portal-wiki"
+
+# Software revision
+ENV REVISION="96ab599c2793f0a61831142f5aa0b880314048b4"
+
 # Install required software
 WORKDIR ${WWW_ROOT}
 RUN apt-get update && apt-get install -y --no-install-recommends git python python-dev build-essential python-pip && \
@@ -22,7 +26,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends git python pyth
     apt-get purge -y python-dev build-essential python-pip && \
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV REVISION="257855833a12fdaf68db90b904244744d5f25d4b"
 
 WORKDIR /var/www/html/php-phenomenal-portal-wiki
 RUN chmod 755 *
