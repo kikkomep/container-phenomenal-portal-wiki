@@ -12,14 +12,17 @@ ENV WWW_ROOT "/var/www/html/"
 
 # App name as ENV variable
 ENV APP_NAME "php-phenomenal-portal-wiki"
+# Install required software
+WORKDIR ${WWW_ROOT}
 RUN apt-get update && apt-get install -y --no-install-recommends git python python-dev build-essential python-pip && \
+    git clone https://github.com/phnmnl/${APP_NAME}.git && \
+    git -C ${APP_NAME} checkout $REVISION && \
+    cd ${APP_NAME}/bin/markdown2html && git submodule init && git submodule update && \
     pip install markdown2 && \
     apt-get purge -y python-dev build-essential python-pip && \
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV REVISION="257855833a12fdaf68db90b904244744d5f25d4b"
-RUN git clone https://github.com/phnmnl/php-phenomenal-portal-wiki.git
-RUN git -C php-phenomenal-portal-wiki checkout $REVISION
 
 WORKDIR /var/www/html/php-phenomenal-portal-wiki
 RUN chmod 755 *
