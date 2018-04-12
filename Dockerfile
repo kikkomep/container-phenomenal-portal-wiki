@@ -3,8 +3,8 @@ MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
 LABEL Description="Wiki for the PhenoMeNal Portal"
 LABEL software="PhenoMeNal Portal"
-LABEL software.version="0.3.1"
-LABEL version="1.1.0"
+LABEL software.version="0.4.0"
+LABEL version="1.2"
 
 # Web server root path
 ENV WWW_ROOT "/var/www/html/"
