@@ -5,7 +5,7 @@ MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 ENV version="1.3"
 
 # software version
-ENV software_version="1.1.0b0"
+ENV software_version="1.1.0b1"
 
 # App name as ENV variable
 ENV APP_NAME "php-phenomenal-portal-wiki"
